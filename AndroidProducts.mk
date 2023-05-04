@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_pipa.mk
+    $(LOCAL_DIR)/aosp_pipa.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_pipa-eng \
-    arrow_pipa-userdebug \
-    arrow_pipa-user
+    aosp_pipa-eng \
+    aosp_pipa-userdebug \
+    aosp_pipa-user
