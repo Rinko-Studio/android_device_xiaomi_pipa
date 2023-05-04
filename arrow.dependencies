@@ -1,17 +1,17 @@
 [
   {
     "remote": "arrow-gitlab",
-    "repository": "android_device_xiaomi_nabu-prebuilt",
-    "target_path": "device/xiaomi/nabu-prebuilt",
+    "repository": "android_device_xiaomi_pipa-prebuilt",
+    "target_path": "device/xiaomi/pipa-prebuilt",
     "branch": "arrow-13.1"
   },
   {
-    "repository": "android_vendor_xiaomi_nabu",
-    "target_path": "vendor/xiaomi/nabu"
+    "repository": "android_vendor_xiaomi_pipa",
+    "target_path": "vendor/xiaomi/pipa"
   },
   {
-    "repository": "android_kernel_xiaomi_nabu",
-    "target_path": "kernel/xiaomi/nabu"
+    "repository": "android_kernel_xiaomi_pipa",
+    "target_path": "kernel/xiaomi/pipa"
   },
   {
     "repository": "android_packages_apps_GCamGOPrebuilt",

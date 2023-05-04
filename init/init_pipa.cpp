@@ -25,29 +25,12 @@ void property_override(char const prop[], char const value[]) {
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void load_china() {
-    property_override("ro.build.fingerprint", "Xiaomi/nabu/nabu:11/RKQ1.200826.002/V13.0.9.0.RKXCNXM:user/release-keys");
-    property_override("ro.product.model", "21051182C");
-}
-
-void load_global() {
-    property_override("ro.build.fingerprint", "Xiaomi/nabu_global/nabu:11/RKQ1.200826.002/V13.0.4.0.RKXMIXM:user/release-keys");
-    property_override("ro.product.model", "21051182G");
-}
-
 void load_more_property() {
     //  Disable OEM unlock prop
     property_override("ro.oem_unlock_supported", "0");
 }
 
 void vendor_load_properties() {
-    std::string region = android::base::GetProperty("ro.boot.hwc", "");
-
-    if (region.find("CN") != std::string::npos)
-        load_china();
-    else if (region.find("GLOBAL") != std::string::npos)
-        load_global();
-    
     load_more_property();
 
 #ifdef __ANDROID_RECOVERY__

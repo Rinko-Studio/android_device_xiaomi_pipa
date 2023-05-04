@@ -4,15 +4,15 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-$(call inherit-product, vendor/xiaomi/nabu/nabu-vendor.mk)
+$(call inherit-product, vendor/xiaomi/pipa/pipa-vendor.mk)
 
-NABU_PREBUILT := device/xiaomi/nabu-prebuilt
+PIPA_PREBUILT := device/xiaomi/pipa-prebuilt
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/developer_gsi_keys.mk)
 
 # Virtual A/B
-$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/virtual_ab_ota/launch_with_vendor_ramdisk.mk)
 
 # Enable Dalvik
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
@@ -27,22 +27,22 @@ PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
 PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # API
+BOARD_API_LEVEL := 30
 BOARD_SHIPPING_API_LEVEL := 30
-PRODUCT_SHIPPING_API_LEVEL := 30
-PRODUCT_TARGET_VNDK_VERSION := $(PRODUCT_SHIPPING_API_LEVEL)
-PRODUCT_EXTRA_VNDK_VERSIONS := $(PRODUCT_SHIPPING_API_LEVEL)
+PRODUCT_SHIPPING_API_LEVEL := 33
+PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
     POSTINSTALL_PATH_system=system/bin/otapreopt_script \
-    FILESYSTEM_TYPE_system=ext4 \
+    FILESYSTEM_TYPE_system=erofs \
     POSTINSTALL_OPTIONAL_system=true
 
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_vendor=true \
     POSTINSTALL_PATH_vendor=bin/checkpoint_gc \
-    FILESYSTEM_TYPE_vendor=ext4 \
+    FILESYSTEM_TYPE_vendor=erofs \
     POSTINSTALL_OPTIONAL_vendor=true
 
 # Audio
@@ -83,7 +83,7 @@ PRODUCT_PACKAGES += \
     init.recovery.qcom.rc \
     init.recovery.usb.rc \
     init.recovery.qcom.sh \
-    init.nabu.rc
+    init.pipa.rc
 
 # Dex
 PRODUCT_DEX_PREOPT_DEFAULT_COMPILER_FILTER := everything
@@ -104,9 +104,13 @@ PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
     android.hidl.manager@1.0
 
+# Kernel
+PRODUCT_COPY_FILES += \
+    $(PIPA_PREBUILT)/kernel/dtb.img:dtb.img
+
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.nabu
+    android.hardware.lights-service.pipa
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -118,11 +122,11 @@ PRODUCT_PACKAGES += \
 
 # RRO Overlays
 PRODUCT_PACKAGES += \
-    FrameworkResOverlayNabu \
-    WifiResOverlayNabu \
-    SystemUIOverlayNabu \
-    SettingsProviderOverlayNabu \
-    SettingsOverlayNabu
+    FrameworkResOverlayPipa \
+    WifiResOverlayPipa \
+    SystemUIOverlayPipa \
+    SettingsProviderOverlayPipa \
+    SettingsOverlayPipa
 
 # Overlays - override vendor ones
 PRODUCT_PACKAGES += \
@@ -140,7 +144,7 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.perf@2.2
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power-service.nabu
+    android.hardware.power-service.pipa
 
 # Properties
 include $(LOCAL_PATH)/properties/default.mk

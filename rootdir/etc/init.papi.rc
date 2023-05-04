@@ -1,7 +1,3 @@
-on post-fs
-    mount none /dev/null vendor/bin/embmsslServer bind
-    mount none /dev/null vendor/etc/init/init.embmssl_server.rc bind
-
     # Perf tuning
 on property:persist.sys.device_provisioned=1
     setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,7

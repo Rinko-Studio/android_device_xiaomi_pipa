@@ -39,7 +39,7 @@ ro.media.recorder-max-base-layer-fps=60
 vendor.mm.enable.qcom_parser=16777207
 
 # Netflix
-ro.netflix.bsp_rev=Q855-16947-1
+ro.netflix.bsp_rev=Q8250-19134-1
 
 # Wifi Display
 persist.debug.wfd.enable=1

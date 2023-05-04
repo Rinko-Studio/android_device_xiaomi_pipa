@@ -37,5 +37,5 @@ ro.radio.noril=true
 
 # SoC
 ro.soc.manufacturer=QTI
-ro.soc.model=SM8150
+ro.soc.model=SM8250
 
