@@ -151,7 +151,8 @@ include $(LOCAL_PATH)/properties/default.mk
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    hardware/google/interfaces
 
 # 2-pane layout
 PRODUCT_PACKAGES += \
