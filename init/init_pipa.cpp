@@ -28,6 +28,8 @@ void property_override(char const prop[], char const value[]) {
 void load_more_property() {
     //  Disable OEM unlock prop
     property_override("ro.oem_unlock_supported", "0");
+    // For SafetyNet
+    property_override("ro.product.first_api_level", "32");
 }
 
 void vendor_load_properties() {
