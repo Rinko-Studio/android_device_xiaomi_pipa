@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.lineageos.settings.stylus;
+package org.lineageos.settings.miio;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -33,7 +33,7 @@ import vendor.xiaomi.hardware.touchfeature.V1_0.ITouchFeature;
 
 import org.lineageos.settings.R;
 
-public class StylusSettingsFragment extends PreferenceFragment implements
+public class MiIOSettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
 
     private static final String STYLUS_KEY = "stylus_switch_key";
@@ -44,7 +44,7 @@ public class StylusSettingsFragment extends PreferenceFragment implements
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.stylus_settings);
+        addPreferencesFromResource(R.xml.miio_settings);
 
         try {
             mTouchFeature = ITouchFeature.getService();
