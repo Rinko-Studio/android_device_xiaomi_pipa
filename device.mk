@@ -20,6 +20,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Lawnchair
 $(call inherit-product-if-exists, vendor/lawnchair/lawnchair.mk)
 
+# MIUI Recovery
+$(call inherit-product-if-exists, device/xiaomi/pipa-recovery/recovery.mk)
+
 # AAPT
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
@@ -31,6 +34,7 @@ BOARD_API_LEVEL := 30
 BOARD_SHIPPING_API_LEVEL := 30
 PRODUCT_SHIPPING_API_LEVEL := 33
 PRODUCT_EXTRA_VNDK_VERSIONS := 30
+PRODUCT_TARGET_VNDK_VERSION := 30
 
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -127,10 +131,6 @@ PRODUCT_PACKAGES += \
 # Parts
 PRODUCT_PACKAGES += \
     XiaomiParts
-
-# Remove packages
-PRODUCT_PACKAGES += \
-    RemovePackages
 
 # RRO Overlays
 PRODUCT_PACKAGES += \

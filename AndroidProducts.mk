@@ -5,9 +5,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_pipa.mk
+    $(LOCAL_DIR)/lineage_pipa.mk
 
 COMMON_LUNCH_CHOICES := \
-    aosp_pipa-eng \
-    aosp_pipa-userdebug \
-    aosp_pipa-user
+    lineage_pipa-eng \
+    lineage_pipa-userdebug \
+    lineage_pipa-user

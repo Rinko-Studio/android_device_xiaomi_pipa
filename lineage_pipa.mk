@@ -12,7 +12,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 $(call inherit-product, device/xiaomi/pipa/device.mk)
 
 # Inherit common configurations
-$(call inherit-product, vendor/aosp/config/common_full_tablet_wifionly.mk)
+$(call inherit-product, vendor/lineage/config/common_full_tablet_wifionly.mk)
 
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -20,7 +20,7 @@ PRODUCT_BRAND := Xiaomi
 PRODUCT_DEVICE := pipa
 PRODUCT_MANUFACTURER := Xiaomi
 PRODUCT_MODEL := Xiaomi Pad 6
-PRODUCT_NAME := arrow_pipa
+PRODUCT_NAME := lineage_pipa
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
